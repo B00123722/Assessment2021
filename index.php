@@ -1,35 +1,65 @@
-<?php require_once '../template/header.php';?>
-<title>Home page</title>
+<?php
+require_once ('config.php');
+session_start();
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="../css/signin.css">
+
+    <title>Sign in</title>
+</head>
 
 <body>
+<div class="menu">
+    <form action="" method="post" name="Login_Form" class="form-signin">
+        <p class="sign" align="center">Pokédex</p>
 
-    <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="about.php">About</a></li>
-            <li><a href="contacts.php">Contact</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">PHP Login exercise - Home page</h3>
-      </div>
+        <button name="Submit" value="Login" class="submit" type="submit" align="center">Sign in</button>
+        <br>
+        <br>
+        <button name="Submit" value="Login" class="submit" type="submit" align="center">Sign in</button>
+        <br>
+        <br>
+        <button name="Submit" value="Login" class="submit" type="submit" align="center">Sign in</button>
+        <br>
+        <br>
+        <button name="Submit" value="Login" class="submit" type="submit" align="center">Sign in</button>
+        <br>
+        <br>
+        <button name="Submit" value="Login" class="submit" type="submit" align="center">Logout</button>
+</div>
 
-        <div class="mainarea">
-            <h1>Status: You are logged in  <?php echo $_SESSION['Username'];?> </h1>
-            <p class="lead">This is where we will put the logout button</p>
+</form>
 
-            <form action="logout.php" method="post" name="Logout_Form" class="form-signin">
-                <button name="Submit" value="Logout" class="button" type="submit">Log out</button>
-            </form>
+<?php
 
-        </div>
+if(isset($_POST['Submit']))
+{
+    if( ($_POST['Username'] == $Username) && ($_POST['Password'] == $Password) )
+    {
 
-        <div class="row marketing">
-        <div>
-          <h4>Home page</h4>
-          <p>Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. Some content goes here. </p>
+        $_SESSION['Username'] = $Username;
+        $_SESSION['Active'] = true;
+        header("location:index.php");
+        exit;
+    }
+    else
+        echo '<script>alert("Incorrect Username or Password")</script>';
 
-       </div>
+}
+?>
 
-          <?php require_once '../template/footer.php';?>
+<footer class="footer">
+    <p>Pokemon Trading Card Management System</p>
+</footer>
+
+</div>
+
+</body>
+</html>

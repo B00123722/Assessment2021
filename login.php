@@ -11,53 +11,45 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="../css/signin.css">
-    <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+
     <title>Sign in</title>
 </head>
+
 <body>
-<div class="container">
+<div class="main">
     <form action="" method="post" name="Login_Form" class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputUsername" >Username</label>
-        <input name="Username" type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-        <label for="inputPassword">Password</label>
-        <input name="Password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
-        <button name="Submit" value="Login" class="button" type="submit">Sign in</button>
+    <p class="sign" align="center">Pokédex</p>
+        <input class="un " input name="Username" type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+        <input class="pass" input name="Password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
-    </form>
+        <button name="Submit" value="Login" class="submit" type="submit" align="center">Sign in</button>
+</div>
 
+</form>
 
+    <?php
 
-
-<?php
-
-/* Check if login form has been submitted */
-/* isset — Determine if a variable is declared and is different than NULL*/
-if(isset($_POST['Submit']))
-{
-
-    /* Check if the form's username and password matches */
-    /* these currently check against variable values stored in config.php but later we will see how these can be checked against information in a database*/
-    if( ($_POST['Username'] == $Username) && ($_POST['Password'] == $Password) )
+      if(isset($_POST['Submit']))
     {
+        if( ($_POST['Username'] == $Username) && ($_POST['Password'] == $Password) )
+        {
 
-        $_SESSION['Username'] = $Username;
-        $_SESSION['Active'] = true;
-        header("location:index.php"); /* 'header() is used to redirect the browser */
-        exit; //we’ve just used header() to redirect to another page but we must terminate all current code so that it doesn’t run when we redirect
+            $_SESSION['Username'] = $Username;
+            $_SESSION['Active'] = true;
+            header("location:index.php");
+            exit;
+        }
+        else
+            echo '<script>alert("Incorrect Username or Password")</script>';
 
     }
-    else
-        echo 'Incorrect Username or Password';
+    ?>
 
-}
-?>
+<footer class="footer">
+    <p>Pokemon Trading Card Management System</p>
+</footer>
 
 </div>
+
 </body>
 </html>

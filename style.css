@@ -1,0 +1,41 @@
+/* Style the body */
+body {
+    font: 14px sans-serif;
+
+}
+
+.wrapper{
+
+    width: 30%;
+    margin: auto;
+    text-align: center;
+    padding: 5%;
+    font-family: Verdana, Arial, Tahoma, Serif;
+
+}
+
+/* Header/Logo Title */
+.header {
+    padding: 40px;
+    text-align: center;
+    background: #5780c1;
+    color: white;
+    font-size: 30px;
+    font-family: Lucida Console;
+
+}
+
+/* Page Content */
+.content {padding:20px;}
+
+/* Footer */
+.footer {
+    text-align: center;
+    background: #5780c1;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    color: white;
+    font-size: 10px;
+}
